@@ -1,0 +1,10 @@
+{
+  "exceptions": [
+    {
+      "rule": "c-delivery-and-kits",
+      "path": "*",
+      "reason": "User explicitly excludes C migration and KITS lookup/archive for this desktop game; c_delivery=false, no KITS dependency is used.",
+      "validation": "Python acceptance suite, Windows executable build and startup checks; no C claims."
+    }
+  ]
+}
