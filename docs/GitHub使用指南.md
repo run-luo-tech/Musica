@@ -6,7 +6,7 @@ Mac 项目：https://github.com/run-luo-tech/MusicaMac
 
 本机目录仍是 E:/AA_PhDocs/HOBBY/Musica 与 E:/AA_PhDocs/HOBBY/MusicaMac；GitHub 仓库地址是云端位置，不需要把本机磁盘路径搬到网页上。两个仓库各自使用 main 主分支、origin 远端。
 
-初次按私有仓库建立。私有仓库仅自己和获授权协作者可见。需要开放源码时可以再改变可见性；私有仓库的下载链接不适合直接发给没有权限的朋友，向朋友发本地发行 ZIP 即可。
+两个仓库现已按要求改为公开，任何人都可以浏览和克隆已提交的源码与说明书。个人歌曲、数据库和答案表仍只保存在本机，不会因仓库公开而上传。给主持人使用的 EXE/ZIP 可以通过 Releases 分发，也可以直接发送本地发行 ZIP。
 
 ## 什么会上传
 
