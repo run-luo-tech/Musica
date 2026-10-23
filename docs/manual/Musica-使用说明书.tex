@@ -8,7 +8,7 @@
 \definecolor{orange}{HTML}{D94B34}
 \hypersetup{colorlinks=true,linkcolor=purple,urlcolor=purple,pdftitle={Musica 使用说明书},pdfauthor={Musica 项目}}
 \graphicspath{{images/}}
-\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\sffamily\color{purple}MUSICA / 使用说明书}\fancyhead[R]{\small v0.2.0}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\sffamily\color{purple}MUSICA / 使用说明书}\fancyhead[R]{\small v0.3.0}
 \fancyfoot[L]{\small 本地播放 · 编号查答案 · 多轮不重复}\fancyfoot[R]{\thepage}
 \setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
 \setlist{nosep,leftmargin=1.6em,itemsep=4pt}
@@ -22,7 +22,7 @@
 {\sffamily\fontsize{48}{56}\selectfont\color{purple}MUSICA}\par
 {\sffamily\LARGE 听歌猜曲桌面软件}\par
 \vspace{4mm}{\Large 图文使用说明书与交付指南}\par
-{\color{orange}v0.2.0\quad /\quad 2026 年 10 月 17 日}
+{\color{orange}v0.3.0\quad /\quad 2026 年 10 月 23 日}
 \vspace{7mm}
 \par\noindent\begin{tikzpicture}[every node/.style={font=\sffamily},box/.style={draw=purple!25,fill=purple!7,rounded corners=5pt,minimum height=15mm,text width=43mm,align=center},>=Latex]
 \node[box] (a) {电脑只显示编号\\参与者听歌猜答案};
@@ -32,27 +32,27 @@
 \end{tikzpicture}\par
 \vspace{5mm}
 \shot{02-answer.png}{0.86}{揭晓后的显示层级：歌曲名最大，歌手次之，编号作为辅助信息。}
-\note{\textbf{主持人最省事的方式：}拿到发行包后解压，双击程序。Windows 发行 EXE 已包含 Python 和播放依赖，无需安装开发环境。Mac 独立项目已准备好构建及首次配置流程，原生应用包仍需在 Mac 上生成并验证。}
+\note{\textbf{主持人最省事的方式：}运行 Windows 安装包，新装与升级使用同一个 Setup。程序已包含 Python 和播放依赖，无需开发环境。也可使用便携 ZIP。Mac 原生应用仍需在 Mac 上构建并验证。}
 \vfill
 {\small 本说明书配图来自隔离的演示曲库。示例音频为静音 MP3，不包含用户歌曲。}
 \clearpage
 \section*{1\quad 先选对交付包}
 \par\noindent\begin{tabularx}{\linewidth}{@{}p{29mm}XX@{}}\toprule
  & Windows 主持人 & Mac 主持人\\\midrule
-推荐使用 & 解压 Windows 便携包，双击 Musica.exe & 原生 Musica.app，复制到“应用程序”后打开\\
+推荐使用 & 运行 Windows Setup；也可解压便携 ZIP & 原生 Musica.app，复制到“应用程序”后打开\\
 是否安装 Python & 不需要 & 打包后的 .app 不需要\\
 是否联网 & 本地播放不需要 & .app 本地播放不需要；源码首次配置需要\\
 当前交付状态 & 已在本机打包与启动验证 & 独立源码、配置脚本及构建流程已提供；尚无 Mac 实机产物\\\bottomrule
 \end{tabularx}\par
 \subsection*{Windows：三步直接开始}
 \begin{enumerate}
-\item 将 Windows ZIP \textbf{完整解压}到桌面、文档等可写目录。不要在压缩包预览窗口里直接运行。
-\item 双击 \pathtext{Musica.exe}。首次启动会释放内置运行环境，可能稍慢；无需管理员权限。
+\item 运行 \pathtext{Musica-Setup-0.3.0.exe}，默认安装到当前用户的 Programs/Musica，无需管理员权限。
+\item 从开始菜单打开；也可完整解压便携 ZIP 后双击 Musica.exe。首次启动可能稍慢，不要在 ZIP 内运行。
 \item 打开“曲库管理 / 导出答案”，导入自己的 MP3。发行包不携带音乐。
 \end{enumerate}
 \subsection*{程序和数据放在哪里}
 \par\noindent\begin{tikzpicture}[node distance=4mm,every node/.style={anchor=west,font=\ttfamily\small}]
-\node (a) {Musica-Windows-x64-v0.2.0/};
+\node (a) {Musica/};
 \node[below=of a,xshift=7mm] (b) {Musica.exe};
 \node[below=of b] (c) {Musica-使用说明书.pdf};
 \node[below=of c] (d) {data/ \quad library.db + audio/};
@@ -60,7 +60,7 @@
 \end{tikzpicture}\par
 
 \texttt{data} 和 \texttt{config} 在运行时生成。若从本源码项目里的启动器或 \texttt{releases} 目录启动，则复用项目根目录的既有曲库；把发行目录独立交给他人后，数据保存在其 EXE 旁。
-\note{\textbf{升级原则：}先退出软件，保留 \texttt{data}，替换程序与说明文件。不要把自己的曲库混进空白发行包，也不要通过覆盖空数据库来升级。}
+\note{\textbf{v0.2.0 升级：}先退出并备份 \texttt{data}，在新版 Setup 中选择\textbf{原 Musica.exe 所在文件夹}，直接覆盖升级。后续安装版自动沿用已登记位置。安装、升级与卸载均保留用户生成的 \texttt{data/config}。}
 \subsection*{适用范围}
 Windows 目标为 Windows 10/11 的 x64 电脑，本机 Windows 11 已执行验证。其他电脑的声卡、杀毒策略与系统版本仍应在活动前试听一次。无需另装播放器或解码包。
 \clearpage
@@ -89,12 +89,14 @@ Windows 目标为 Windows 10/11 的 x64 电脑，本机 Windows 11 已执行验�
 歌曲编号 & 曲库永久身份，例如 000001；主持人在手机答案表里查同一编号。\\
 播放 / 暂停 & 首次播放成功后，正式模式才把该题记为已用。\\
 重新播放 & 再听当前题，不会增加出题计数。\\
+播放进度 & 点击或拖动松开定位；播放中继续，暂停中保持暂停。播放前可预选起点，不记题。\\
 揭晓答案 & 在电脑上大字展示歌名与歌手；请确认参与者已经作答。\\
 随机下一题 & 切换并隐藏上一题答案；尚未播放的候选不计题。\\
 上一题（回看） & 回看本轮已经播放的题目；不会成为新的重复出题。\\\bottomrule
 \end{tabularx}\par
 \note{\textbf{正式开始前做好准备。}曲库管理和导出界面包含答案；正式模式会禁用管理入口。主持人应提前导入、检查、导出，活动过程中用手机查表。}
 程序不会发布系统媒体歌名或封面。以上防护针对正常共享屏幕操作；直接打开本地数据库或答案表仍能看到答案。按 F11 全屏，Esc 退出全屏。
+进度条可用方向键调整 5 秒，Home 回开头，End 到末尾附近；“重新播放”始终从零开始，切题清除起点。MP3 定位精度随编码而异。
 \clearpage
 \section*{4\quad 测试、轮次与一场活动}
 \par\noindent\begin{tikzpicture}[node distance=8mm,box/.style={draw=purple!35,fill=purple!7,rounded corners,minimum height=11mm,text width=30mm,align=center,font=\small},>=Latex]
@@ -135,7 +137,7 @@ Windows 目标为 Windows 10/11 的 x64 电脑，本机 Windows 11 已执行验�
 \end{enumerate}
 \par\noindent\begin{tabularx}{\linewidth}{@{}p{31mm}X@{}}\toprule
 平台 & 数据位置\\\midrule
-Windows 便携版 & EXE 同级 \texttt{data}；本源码项目启动时为项目根目录 \texttt{data}。\\
+Windows & 安装版与便携版均为 EXE 同级 \texttt{data}；源码启动为项目根目录 \texttt{data}。\\
 macOS & \pathtext{~/Library/Application Support/MusicaMac/data}。Finder 的“前往文件夹”可粘贴此路径。\\\bottomrule
 \end{tabularx}\par
 \clearpage
@@ -170,7 +172,7 @@ macOS & \pathtext{~/Library/Application Support/MusicaMac/data}。Finder 的“�
 \texttt{docs/manual} & 本说明书 TeX、PDF、独立截图及图件来源。\\\bottomrule
 \end{tabularx}\par
 \subsection*{Windows 维护}
-构建机使用 \pathtext{requirements-build.txt}，运行 \pathtext{scripts/build_windows.ps1}。普通主持人只需发行包。正式数据保留在 \texttt{data}，不要随源代码清理。
+构建机使用 \pathtext{requirements-build.txt} 和 Inno Setup 6，运行 \pathtext{scripts/build_windows.ps1}，生成 Setup 与便携 ZIP。普通主持人只需发行包。正式数据保留在 \texttt{data}，不要随源代码清理。
 \subsection*{Mac 维护}
 独立项目 \texttt{MusicaMac} 不依赖 Windows 项目目录。手动构建命令为 \pathtext{bash ./生成Mac应用.command}。已提供 GitHub Actions 手动触发流程，分别在 Mac arm64 与 Intel runner 上执行；本次没有上传仓库或触发远端构建。
 \subsection*{验证口径}

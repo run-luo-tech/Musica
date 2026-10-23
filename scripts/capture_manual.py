@@ -8,7 +8,7 @@ from types import SimpleNamespace
 from PIL import ImageGrab
 from src.adapters.store import Store
 from src.adapters.library import Library
-from src.apps.desktop import Desktop, ImportDialog
+from src.apps.desktop import Desktop, ImportDialog, APP_VERSION
 
 
 def main():
@@ -21,7 +21,7 @@ def main():
         store = Store(temp)
         library = Library(store)
         library.import_mp3(root_dir / 'tests/fixtures/silence.mp3', '示例歌手', '夏日序曲')
-        app = Desktop(root, store, {'volume': 0, 'schema_version': 1, 'selection': 'random', 'version': '0.2.0'})
+        app = Desktop(root, store, {'volume': 0, 'schema_version': 1, 'selection': 'random', 'version': APP_VERSION})
 
         def capture(window, name):
             root.update()

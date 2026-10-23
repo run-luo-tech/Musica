@@ -8,4 +8,6 @@ apps → pipelines → core/adapters。core 处理歌曲身份、解析、候选
 
 交付分离：releases 为不含个人数据的自包含 EXE，archive 仅历史版本，data/exports 属用户内容。run.application_home 在仓库 releases 下复用根 data，离开仓库独立运行时用 EXE 所在目录；对应行为有自动测试。主持人无需开发环境，不捆绑机器上的整个 .venv。
 
+v0.3.0 安装器采用 Inno Setup 6、固定 AppId=Musica.Windows、当前用户权限，默认装入 LOCALAPPDATA/Programs/Musica。后续版本沿用注册目录；旧便携版用户选择原 EXE 目录直接升级。程序继续在 EXE 旁保存 data/config，安装器仅显式列出公共程序与文档，不搬迁/覆盖用户数据，卸载保留生成的数据。音频定位状态属于 Audio；拖动预览与未播放起点属于 Desktop，不进入 Game/Store。
+
 macOS 独立项目位于同级 MusicaMac，格式兼容但不共享相对代码路径，采用用户 Application Support 数据位置与原生打包方案。

@@ -35,3 +35,11 @@ project-engineering CLI verify/check/report 保存证据；宿主自动钩子本
 ## v0.2.0 整理与部署
 
 旧构建移至 archive，个人 data/exports 保留。Windows 与独立 Mac 项目各 21 项回归通过。Mac 的 .command 经 bash -n 检查；通用测试在 Windows 执行，不等同 macOS 原生验证。TeX说明书为8页、4张独立演示截图，XeLaTeX编译，无 overfull 警告，逐页渲染检查。Windows 独立启动证据与最终发行清单在 .engineering/release-v020.json。
+
+## v0.3.0：播放定位与统一安装升级（2026-10-23）
+
+- 28 项验收通过，包括真实静音 MP3 的绝对起播、前进/后退、暂停定位与继续、定位失败停止；鼠标点击/拖动预览不被刷新覆盖、松开提交、方向键与边界；正式模式预选不记题、播放成功仅记一次、重播与切题重置。验收日志由 engineering verify acceptance 保存。
+- 实际 Setup 经全新安装、卸载、v0.2.0 真实旧 EXE 目录覆盖、重复安装验证。安装操作前后逐文件核对 data/config/exports 摘要；正常启动后的数据库按逻辑内容核对，避免 SQLite 头部计数器变化造成误判。永久编号、未完成活动和 plays 保持一致；不传 /DIR 的重复安装沿用已登记位置。
+- 实际安装后的 EXE 成功打开 v0.3.0 窗口并正常关闭；开始菜单快捷方式生成，卸载删除快捷方式并保留用户生成的数据库。测试使用临时中文目录和合成数据，未操作用户曲库。记录见 .engineering/installer-v0.3.0.json。
+- 安装器使用固定 AppId、当前用户权限、简体中文界面。便携 ZIP 逐项检查，无 data/config/exports。说明书仍为 8 页，XeLaTeX 无溢出警告，渲染检查通过；截图来自独立静音演示库。
+- 增量工程检查的两个循环提示已人工确认：卸载注册项等待上限 15 秒、窗口启动等待上限 45 秒；子进程调用另有超时。本机 Windows 11 验证，不扩展为其他电脑、真实扬声器听感或 Mac 原生验证；MP3 定位精度受编码影响。

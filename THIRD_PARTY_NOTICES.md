@@ -11,4 +11,6 @@
 - https://www.sqlite.org/copyright.html
 - https://pyinstaller.org/en/stable/license.html
 
-Musica 第一版源代码在本项目根目录；独立程序分发时请同时提供对应源代码、依赖版本和组件许可。本项目尚未指定自有源代码的额外授权条款。
+Windows 安装包使用 Inno Setup 6.7.3 构建（https://github.com/jrsoftware/issrc/releases/tag/is-6_7_3）。简体中文翻译取自该标签 Files/Languages/Unofficial/ChineseSimplified.isl，作者信息保留于源码 packaging/ChineseSimplified.isl；Inno Setup 许可见 licenses/Inno-Setup-LICENSE.txt。
+
+对应版本源码在 https://github.com/run-luo-tech/Musica 的同名发行标签，依赖版本见上述 requirements 文件。独立程序分发时请同时提供对应源代码、依赖版本和组件许可。本项目尚未指定自有源代码的额外授权条款。
