@@ -37,6 +37,6 @@ main 表示默认代码分支；origin 表示自己的 GitHub 仓库。push 是�
 
 发布前运行验收测试、构建说明书，再运行 scripts/build_windows.ps1。在未安装 Musica、没有已有 Musica 开始菜单快捷方式的 Windows 测试账户下执行 `python -m scripts.verify_installer`，验证实际安装包的新装、旧便携目录升级、重复安装、数据保留和 EXE 启动；不要把这个隔离验收脚本当作给主持人的升级工具。更新说明记录新增交互、旧版升级步骤与平台验证范围。
 
-Mac .app 还待原生构建。Mac 工作流只有手动触发，不会因为本 Windows 项目的 push 自动运行。
+Mac 项目也提供原生 DMG/ZIP，分别对应 Apple Silicon 和 Intel，见 [MusicaMac Releases](https://github.com/run-luo-tech/MusicaMac/releases/latest)。其原生构建由 Mac 仓库的手动工作流执行，不会因为本 Windows 项目的 push 自动运行。Mac 升级是退出旧版后替换同名 Musica.app，数据保留在 Application Support。
 
 GitHub Releases 官方说明：https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases

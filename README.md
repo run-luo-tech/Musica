@@ -20,7 +20,7 @@ v0.3.0。支持点击和拖动播放进度，播放前可预选起播位置。�
 
 进度条：点击或拖动松开后定位，播放中继续播放，暂停中保持暂停；未开始播放时只预选起点、不记题。方向键调整 5 秒，Home 回开头、End 到末尾附近；重新播放从头开始。MP3 的定位精度取决于编码，不承诺逐采样精确。
 
-Mac 独立项目：同级 MusicaMac，不依赖本 Windows 项目。Mac 项目已有首次配置与原生 .app 构建流程；本机不能构建或验证 Mac 应用，尚未交付 Mac 原生二进制。
+Mac 独立项目：[MusicaMac](https://github.com/run-luo-tech/MusicaMac)，不依赖本 Windows 项目。Mac v0.3.0 提供 Apple Silicon / Intel 原生 DMG 和 ZIP，下载见其 [Releases](https://github.com/run-luo-tech/MusicaMac/releases/latest)。退出旧版后替换 Musica.app，保留 Application Support 中的歌曲、活动与配置。
 
 ## 维护目录
 
