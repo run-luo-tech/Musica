@@ -34,6 +34,7 @@ OutputDir={#OutputDir}
 OutputBaseFilename=Musica-Setup-{#AppVersion}
 VersionInfoVersion={#AppVersion}.0
 UninstallDisplayIcon={app}\Musica.exe
+SetupIconFile=..\assets\Musica.ico
 Compression=lzma2
 SolidCompression=yes
 CloseApplications=yes

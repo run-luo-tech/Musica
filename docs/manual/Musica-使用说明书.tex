@@ -8,7 +8,7 @@
 \definecolor{orange}{HTML}{D94B34}
 \hypersetup{colorlinks=true,linkcolor=purple,urlcolor=purple,pdftitle={Musica 使用说明书},pdfauthor={Musica 项目}}
 \graphicspath{{images/}}
-\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\sffamily\color{purple}MUSICA / 使用说明书}\fancyhead[R]{\small v0.3.0}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\sffamily\color{purple}MUSICA / 使用说明书}\fancyhead[R]{\small v0.3.1}
 \fancyfoot[L]{\small 本地播放 · 编号查答案 · 多轮不重复}\fancyfoot[R]{\thepage}
 \setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
 \setlist{nosep,leftmargin=1.6em,itemsep=4pt}
@@ -22,7 +22,7 @@
 {\sffamily\fontsize{48}{56}\selectfont\color{purple}MUSICA}\par
 {\sffamily\LARGE 听歌猜曲桌面软件}\par
 \vspace{4mm}{\Large 图文使用说明书与交付指南}\par
-{\color{orange}v0.3.0\quad /\quad 2026 年 10 月 23 日}
+{\color{orange}v0.3.1\quad /\quad 2026 年 10 月 24 日}
 \vspace{7mm}
 \par\noindent\begin{tikzpicture}[every node/.style={font=\sffamily},box/.style={draw=purple!25,fill=purple!7,rounded corners=5pt,minimum height=15mm,text width=43mm,align=center},>=Latex]
 \node[box] (a) {电脑只显示编号\\参与者听歌猜答案};
@@ -32,7 +32,7 @@
 \end{tikzpicture}\par
 \vspace{5mm}
 \shot{02-answer.png}{0.86}{揭晓后的显示层级：歌曲名最大，歌手次之，编号作为辅助信息。}
-\note{\textbf{主持人最省事的方式：}运行 Windows 安装包，新装与升级使用同一个 Setup。程序已包含 Python 和播放依赖，无需开发环境。也可使用便携 ZIP。Mac 原生应用仍需在 Mac 上构建并验证。}
+\note{\textbf{主持人最省事的方式：}运行 Windows 安装包，新装与升级使用同一个 Setup。程序已包含 Python 和播放依赖，无需开发环境。也可使用便携 ZIP；Mac 另有对应架构的原生 DMG/ZIP。打开程序即可看到左上角 Logo。}
 \vfill
 {\small 本说明书配图来自隔离的演示曲库。示例音频为静音 MP3，不包含用户歌曲。}
 \clearpage
@@ -42,11 +42,11 @@
 推荐使用 & 运行 Windows Setup；也可解压便携 ZIP & 原生 Musica.app，复制到“应用程序”后打开\\
 是否安装 Python & 不需要 & 打包后的 .app 不需要\\
 是否联网 & 本地播放不需要 & .app 本地播放不需要；源码首次配置需要\\
-当前交付状态 & 已在本机打包与启动验证 & 独立源码、配置脚本及构建流程已提供；尚无 Mac 实机产物\\\bottomrule
+当前交付状态 & 本机打包与启动验证 & 已提供原生 DMG/ZIP；由 Mac runner 分别构建验证\\\bottomrule
 \end{tabularx}\par
 \subsection*{Windows：三步直接开始}
 \begin{enumerate}
-\item 运行 \pathtext{Musica-Setup-0.3.0.exe}，默认安装到当前用户的 Programs/Musica，无需管理员权限。
+\item 运行 \pathtext{Musica-Setup-0.3.1.exe}，默认安装到当前用户的 Programs/Musica，无需管理员权限。
 \item 从开始菜单打开；也可完整解压便携 ZIP 后双击 Musica.exe。首次启动可能稍慢，不要在 ZIP 内运行。
 \item 打开“曲库管理 / 导出答案”，导入自己的 MP3。发行包不携带音乐。
 \end{enumerate}
@@ -148,9 +148,9 @@ macOS & \pathtext{~/Library/Application Support/MusicaMac/data}。Finder 的“�
 \item 解压出 \texttt{Musica.app}，复制到“应用程序”，然后双击。运行依赖包含在应用包里。
 \item 曲库写入当前用户的 Application Support，不写入应用包，也不要求系统目录权限。
 \end{enumerate}
-\note{\textbf{当前状态：}本次工作环境是 Windows。Mac 原生 .app 尚未构建或实机测试；不能把 Windows EXE 改名后交给 Mac 使用。Mac 项目里的构建脚本和 CI 是待执行的生成路径。}
+\note{\textbf{Mac 安装与升级：}从 MusicaMac Releases 下载对应架构 DMG，退出旧版，将 Musica.app 拖到 Applications；已有应用时选择“替换”。曲库与设置在应用外保存。原生测试结果见对应版本的 Actions 运行。}
 \subsection*{尚无 .app 时：源码的一次性便捷配置}
-将 \texttt{MusicaMac-Source-v0.2.0.zip} 在 Mac 上解压，双击“首次配置并启动.command”。第一次需要网络：脚本从官方来源安装项目私有 uv、Python 3.12 及依赖；不要求预先安装 Python、Homebrew、Xcode 或 sudo。依赖安装成功后可离线再次运行。
+开发者可解压对应版本的 Source code，双击“首次配置并启动.command”。第一次需要网络：脚本从官方来源安装项目私有 uv、Python 3.12 及依赖；不要求预先安装 Python、Homebrew、Xcode 或 sudo。依赖安装成功后可离线再次运行。
 
 源码目录应放在可写位置，配置期间不要移动它。若直接复制源码导致 command 没有执行权限，可在终端运行 \pathtext{bash ./首次配置并启动.command}。
 \subsection*{给其他主持人生成真正免环境的应用}
@@ -174,9 +174,9 @@ macOS & \pathtext{~/Library/Application Support/MusicaMac/data}。Finder 的“�
 \subsection*{Windows 维护}
 构建机使用 \pathtext{requirements-build.txt} 和 Inno Setup 6，运行 \pathtext{scripts/build_windows.ps1}，生成 Setup 与便携 ZIP。普通主持人只需发行包。正式数据保留在 \texttt{data}，不要随源代码清理。
 \subsection*{Mac 维护}
-独立项目 \texttt{MusicaMac} 不依赖 Windows 项目目录。手动构建命令为 \pathtext{bash ./生成Mac应用.command}。已提供 GitHub Actions 手动触发流程，分别在 Mac arm64 与 Intel runner 上执行；本次没有上传仓库或触发远端构建。
+独立项目 \texttt{MusicaMac} 不依赖 Windows 项目目录。手动构建命令为 \pathtext{bash ./生成Mac应用.command}。GitHub Actions 分别在 Mac arm64 与 Intel runner 上测试和打包，产出 DMG/ZIP 与验证记录。
 \subsection*{验证口径}
-Windows 通用逻辑、真实 MP3 导入、UI 防泄题、持久化恢复和便携路径在本机检查；Mac 通用逻辑在 Windows 上执行回归，原生锁、字体、声卡、首次下载与 .app 签名启动仍待 Mac 实机验证。图示是实际 Windows 界面，不冒充 Mac 截图。
+Windows 通用逻辑、MP3 导入、UI 防泄题、持久化恢复和便携路径在本机检查；Mac 两个架构在原生 runner 执行回归与包内播放检查。静音夹具不代替目标电脑声音试听。图示是实际 Windows 界面，不冒充 Mac 截图。
 \subsection*{官方依据}
 {\small
 \begin{itemize}

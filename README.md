@@ -1,12 +1,12 @@
 # Musica · 听歌猜曲（Windows）
 
-v0.3.0。支持点击和拖动播放进度，播放前可预选起播位置。只导入 MP3，文件名“歌手-歌曲名”；主持人从手机答案表按永久编号查询，电脑揭晓前不显示答案。测试不记题，正式活动跨轮去重，退出可恢复。
+v0.3.1。新增主界面 Logo、窗口与程序图标，打开程序即可看到。支持点击和拖动播放进度，播放前可预选起播位置。只导入 MP3，文件名“歌手-歌曲名”；主持人从手机答案表按永久编号查询，电脑揭晓前不显示答案。测试不记题，正式活动跨轮去重，退出可恢复。
 
 ## 主持人拿到发行包后
 
-从 [GitHub Releases](https://github.com/run-luo-tech/Musica/releases/latest) 下载 **Musica-Setup-0.3.0.exe**，运行后从开始菜单打开。新装和升级使用同一个安装包，无需 Python、pip、开发环境或额外播放器，不需要管理员权限。目标 Windows 10/11 x64，本机 Windows 11 验证。首次启动解包内置环境，可能稍慢。
+从 [GitHub Releases](https://github.com/run-luo-tech/Musica/releases/latest) 下载 **Musica-Setup-0.3.1.exe**，运行后从开始菜单打开。新装和升级使用同一个安装包，无需 Python、pip、开发环境或额外播放器，不需要管理员权限。目标 Windows 10/11 x64，本机 Windows 11 验证。首次启动解包内置环境，可能稍慢。
 
-也可下载 Musica-Windows-x64-v0.3.0.zip，完整解压后双击 Musica.exe，保留便携使用方式。GitHub 的 Source code ZIP 是开发源码，普通用户应选择 Setup 或便携 ZIP。
+也可下载 Musica-Windows-x64-v0.3.1.zip，完整解压后双击 Musica.exe，保留便携使用方式。GitHub 的 Source code ZIP 是开发源码，普通用户应选择 Setup 或便携 ZIP。
 
 项目内使用可双击“启动 Musica.cmd”，与现有根目录 data 共用曲库。发行包不包含个人歌曲和数据库。
 
@@ -20,7 +20,7 @@ v0.3.0。支持点击和拖动播放进度，播放前可预选起播位置。�
 
 进度条：点击或拖动松开后定位，播放中继续播放，暂停中保持暂停；未开始播放时只预选起点、不记题。方向键调整 5 秒，Home 回开头、End 到末尾附近；重新播放从头开始。MP3 的定位精度取决于编码，不承诺逐采样精确。
 
-Mac 独立项目：[MusicaMac](https://github.com/run-luo-tech/MusicaMac)，不依赖本 Windows 项目。Mac v0.3.0 提供 Apple Silicon / Intel 原生 DMG 和 ZIP，下载见其 [Releases](https://github.com/run-luo-tech/MusicaMac/releases/latest)。退出旧版后替换 Musica.app，保留 Application Support 中的歌曲、活动与配置。
+Mac 独立项目：[MusicaMac](https://github.com/run-luo-tech/MusicaMac)，不依赖本 Windows 项目。Mac v0.3.1 提供 Apple Silicon / Intel 原生 DMG 和 ZIP，下载见其 [Releases](https://github.com/run-luo-tech/MusicaMac/releases/latest)。退出旧版后替换 Musica.app，保留 Application Support 中的歌曲、活动与配置。
 
 ## 维护目录
 

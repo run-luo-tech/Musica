@@ -1,8 +1,8 @@
 @echo off
 chcp 65001 >nul
 cd /d "%~dp0"
-if exist "releases\Musica-Windows-x64-v0.3.0\Musica.exe" (
-    start "" "releases\Musica-Windows-x64-v0.3.0\Musica.exe"
+if exist "releases\Musica-Windows-x64-v0.3.1\Musica.exe" (
+    start "" "releases\Musica-Windows-x64-v0.3.1\Musica.exe"
     exit /b
 )
 if exist ".venv\Scripts\pythonw.exe" (

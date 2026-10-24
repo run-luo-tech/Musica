@@ -13,11 +13,14 @@ from pathlib import Path
 import shutil
 import sqlite3
 import subprocess
+import struct
 import sys
 import tempfile
 import time
 import winreg
 import zipfile
+import pefile
+from PyInstaller.archive.readers import CArchiveReader
 
 from src.adapters.library import Library
 from src.adapters.store import Store
@@ -108,6 +111,25 @@ def main():
     assert not shortcut.exists(), "Existing user shortcut must not be replaced by a test"
     assert SETUP.is_file()
     result = {"version": APP_VERSION, "setup_sha256": digest(SETUP), "checks": []}
+    executable = ROOT / f"releases/Musica-Windows-x64-v{APP_VERSION}/Musica.exe"
+    bundled = CArchiveReader(str(executable))
+    for filename in ('logo-80.png', 'logo-256.png'):
+        key = next(name for name in bundled.toc if name.replace('\\', '/') == 'assets/' + filename)
+        assert bundled.extract(key) == (ROOT / 'assets' / filename).read_bytes()
+    icon = (ROOT / 'assets/Musica.ico').read_bytes()
+    count = struct.unpack_from('<H', icon, 4)[0]
+    expected_icons = set()
+    for index in range(count):
+        size, offset = struct.unpack_from('<II', icon, 6 + index * 16 + 8)
+        expected_icons.add(hashlib.sha256(icon[offset:offset + size]).hexdigest())
+    with pefile.PE(str(executable)) as binary:
+        actual_icons = set()
+        icons = next(entry for entry in binary.DIRECTORY_ENTRY_RESOURCE.entries if entry.id == 3)
+        for entry in icons.directory.entries:
+            data = entry.directory.entries[0].data.struct
+            actual_icons.add(hashlib.sha256(binary.get_data(data.OffsetToData, data.Size)).hexdigest())
+        assert actual_icons == expected_icons, 'EXE icon differs from supplied artwork'
+    result['checks'].append('bundled header/window PNGs and actual EXE icon match supplied branding')
     with zipfile.ZipFile(ROOT / f"releases/Musica-Windows-x64-v{APP_VERSION}.zip") as archive:
         names = archive.namelist()
         assert not any(Path(name).parts[0] in {"data", "config", "exports"} for name in names)

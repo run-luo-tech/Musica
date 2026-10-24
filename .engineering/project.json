@@ -87,7 +87,8 @@
       ],
       "inputs": [
         "requirements.txt",
-        "config/app.json"
+        "config/app.json",
+        "assets/*"
       ],
       "timeout": 60
     },
@@ -106,8 +107,8 @@
     {
       "name": "installer",
       "argv": ["python", "scripts/verify.py", "--installer"],
-      "covers": ["scripts/verify_installer.py", "scripts/build_windows.ps1", "packaging/**"],
-      "inputs": ["releases/Musica-Setup-0.3.0.exe", "releases/Musica-Windows-x64-v0.3.0.zip"],
+      "covers": ["scripts/verify_installer.py", "scripts/build_windows.ps1", "scripts/prepare_branding.py", "packaging/**"],
+      "inputs": ["releases/Musica-Setup-0.3.1.exe", "releases/Musica-Windows-x64-v0.3.1.zip", "assets/*"],
       "timeout": 240
     }
   ],

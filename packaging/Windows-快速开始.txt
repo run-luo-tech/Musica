@@ -1,6 +1,6 @@
-Musica Windows · v0.3.0
+Musica Windows · v0.3.1
 
-1. 首次安装：运行 Musica-Setup-0.3.0.exe，完成后从开始菜单打开。
+1. 首次安装：运行 Musica-Setup-0.3.1.exe，完成后从开始菜单打开。
 2. 也可完整解压便携 ZIP 后双击 Musica.exe。无需 Python、pip、播放器或管理员权限。
 3. 曲库管理 → 批量导入 MP3；文件名为“歌手-歌曲名.mp3”。
 4. 导出手机答案表（HTML），传到主持人手机后离线查编号。

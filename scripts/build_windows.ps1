@@ -9,7 +9,8 @@ if (-not (Test-Path -LiteralPath $Python)) {
 $version = & $Python -c 'from src.apps.desktop import APP_VERSION; print(APP_VERSION)'
 if ($LASTEXITCODE -ne 0 -or $version -notmatch '^\d+\.\d+\.\d+$') { throw '无法读取发行版本。' }
 $releasePath = Join-Path $projectRoot "releases\Musica-Windows-x64-v$version"
-& $Python -m PyInstaller --noconfirm --windowed --onefile --name Musica --distpath $releasePath --workpath build\windows --specpath build run.py
+$assetRoot = Join-Path $projectRoot 'assets'
+& $Python -m PyInstaller --noconfirm --windowed --onefile --name Musica --icon "$assetRoot\Musica.ico" --add-data "${assetRoot}:assets" --distpath $releasePath --workpath build\windows --specpath build run.py
 if ($LASTEXITCODE -ne 0) { throw 'PyInstaller 构建失败。' }
 Copy-Item -LiteralPath 'packaging\Windows-快速开始.txt','THIRD_PARTY_NOTICES.md' -Destination $releasePath -Force
 Copy-Item -LiteralPath 'licenses' -Destination $releasePath -Recurse -Force
